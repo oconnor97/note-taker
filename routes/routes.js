@@ -14,14 +14,35 @@ module.exports = (app) => {
     });
 
     fs.readFile('db/db.json', "utf8", (err, data) => {
-        const noteArray = JSON.parse(data)
+
+        if (err) console.log(err)
+
+        let noteArray = JSON.parse(data)
         console.log(noteArray)
+
+
+
+        app.get("/api/notes", (req, res) => {
+            res.json(noteArray)
+        })
+
+
+        app.post("/api/notes", (req, res) => {
+            let addNote = req.body;
+            noteArray.push(addNote)
+            console.log(noteArray)
+            renderNotes()
+
+        })
+
+        function renderNotes() {
+            fs.writeFile("dd/db.json", noteArray, err => {
+                if (err) console.log(err)
+            })
+        }
     })
 
 
-    app.get("/api/notes", (req, res) => {
-        res.JSON(noteArray)
-    })
 
 
 };
