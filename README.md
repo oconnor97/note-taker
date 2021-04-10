@@ -16,7 +16,7 @@
     In the command line run npm init, then npm i express. Finally run `node server.js` to start the server and on your browser go to localhost:3000.    
 
 
-![](public\assets\images\note-taker.png)
+![](public/assets/images/note-taker.png)
 
 
 ## Deployment
