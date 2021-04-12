@@ -35,6 +35,10 @@ module.exports = (app) => {
 
         })
 
+        app.get("/api/note/:id", (req, res) => {
+            res.json(noteArray[req.params.id]);
+        });
+
         function renderNotes() {
             fs.writeFile("db/db.json", JSON.strtingify(noteArray), err => {
                 if (err) console.log(err)
