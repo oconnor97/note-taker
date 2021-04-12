@@ -36,7 +36,7 @@ module.exports = (app) => {
         })
 
         function renderNotes() {
-            fs.writeFile("dd/db.json", noteArray, err => {
+            fs.writeFile("db/db.json", JSON.strtingify(noteArray), err => {
                 if (err) console.log(err)
             })
         }
